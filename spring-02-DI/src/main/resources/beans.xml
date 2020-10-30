@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student" class="com.aqiang.pojo.Student">
+        <!--属性常量注入-->
+        <property name="name" value="aqiang"/>
+        <!--属性是引用类型时注入,ref指向在xml注册过的类-->
+        <property name="address" ref="addr"/>
+        <!--属性数组注入-->
+        <property name="books">
+            <array>
+                <value>呐喊</value>
+                <value>彷徨</value>
+                <value>孔乙己</value>
+            </array>
+        </property>
+        <!--属性List注入-->
+        <property name="hobbys">
+            <list>
+                <value>代码</value>
+                <value>听歌</value>
+                <value>看书</value>
+            </list>
+        </property>
+        <!--属性set注入-->
+        <property name="games">
+            <set>
+                <value>贪吃蛇</value>
+                <value>俄罗斯方块</value>
+                <value>斗地主</value>
+            </set>
+        </property>
+        <!--属性map注入-->
+        <property name="card">
+            <map>
+                <entry key="学号" value="1546685"></entry>
+                <entry key="密码" value="123456"></entry>
+                <entry key="银行卡" value="99999"></entry>
+            </map>
+        </property>
+
+        <!--属性null注入-->
+        <property name="wife">
+            <null></null>
+        </property>
+
+        <!--属性Properties注入-->
+        <property name="info">
+            <props>
+                <prop key="身高">180</prop>
+                <prop key="颜值">100</prop>
+                <prop key="体重">70</prop>
+            </props>
+        </property>
+
+    </bean>
+
+    <bean id="addr" class="com.aqiang.pojo.Address">
+        <property name="address" value="广州"/>
+    </bean>
+
+
+
+</beans>
