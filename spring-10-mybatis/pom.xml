@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-08-mabatis</artifactId>
-
+    <artifactId>spring-10-mybatis</artifactId>
     <!--导入mybatis各种依赖-->
     <dependencies>
         <dependency>
@@ -18,12 +17,7 @@
             <artifactId>mybatis</artifactId>
             <version>3.5.2</version>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
+        
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -52,11 +46,11 @@
             <artifactId>mybatis-spring</artifactId>
             <version>2.0.2</version>
         </dependency>
+
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
         </dependency>
     </dependencies>
     <!--配置Maven静态资源过滤问题-->
@@ -84,18 +78,27 @@
 
 </project>
 <!--
-1,解决属性名与字段名不一致问题
-2,实现分页
-3,多对一的两种实现方法 demo01
-4,一对多的两种实现方法 demo02
-
-
-关联-association
-集合-collection
-所以association是用于一对一和多对一，而collection是用于一对多的关系
-JavaType和ofType都是用来指定对象类型的
-
-JavaType是用来指定pojo中属性的类型
-
-ofType指定的是映射到list集合属性中pojo的类型。
+1,动态SQL
+    1.1，导入依赖
+    1.2,mybatis配置文件
+    1.3，spring核心配置
+    1.4,编写实体类，实体类对应mapper接口以及其实现类
+    1.5,编写mapper接口对应xml配置文件
+    1.6,在接口实现类中注入sqlSessionTemplate
+    1.7，在spring.xml核心配置文件中注册接口实现类以及xml配置文件
+    1.8,写sql语句
+    1.9，测试
+2,开启缓存，
+    2.1 一级缓存
+        sqlSession级别缓存，本地缓存，默认开启，
+    2.2 二级缓存
+        也叫全局缓存，一个mapper既是命名空间对应一个二级缓存。
+        开启步骤：
+            1，在mybatis-config.xml中设置
+            <setting name="cacheEnabled" value="true"/>
+            2，在每个xxxMapper.xml中设置
+                    开启二级缓存，默认参数
+                    <cache/>
+                    开启二级缓存，设置参数
+                    <cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true"/>
 -->

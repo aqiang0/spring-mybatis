@@ -18,6 +18,7 @@
         <module>spring-07-mybatis</module>
         <module>spring-08-mybatis</module>
         <module>spring-09-mybatis</module>
+        <module>spring-10-mybatis</module>
     </modules>
 
     <dependencies>
@@ -31,14 +32,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
             <version>RELEASE</version>
-
         </dependency>
     </dependencies>
 
